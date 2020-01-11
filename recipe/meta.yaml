@@ -1,5 +1,5 @@
 {% set name = "dagster_pandas" %}
-{% set version = "0.6.6" %}
+{% set version = "0.6.7" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name|replace("_","-") }}-{{ version }}.tar.gz"
-  sha256: d83dcf04d6b0109208f6111d53dc7946a252bc9fce252e890b1c96ca1853fab2
+  sha256: 8232862d9323ef4d47ab11091d51c1f2a2e21dc2b67aeefa7eb92e51cad18355
 
 build:
   number: 0
@@ -28,6 +28,10 @@ requirements:
 test:
   imports:
     - dagster_pandas
+  requires:
+   - pip
+  commands:
+   - pip check
 
 about:
   home: "https://github.com/dagster-io/dagster"
